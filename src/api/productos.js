@@ -1,8 +1,16 @@
 import axios from "axios";
+import { API_BASE } from "./config";
 
-const API_URL = "https://localhost:5242/api/ProductosApi";
+const PRODUCTOS_URL = `${API_BASE}/api/ProductoApi`;
 
-export const getProductos = async () => {
-  const response = await axios.get(API_URL);
-  return response.data;
-};
+export async function getProductos() {
+  const { data } = await axios.get(PRODUCTOS_URL);
+  return data;
+}
+
+export async function createProducto(payload) {
+  // payload shape expected by backend Producto model
+  // { nombre, descripcion, precio, stock, categoria, proveedorId }
+  const { data } = await axios.post(PRODUCTOS_URL, payload);
+  return data;
+}
