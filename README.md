@@ -1,3 +1,8 @@
+profe hay un problema con la subida de mis commits 
+y solo sale de mi compañero Pablo y yo Wilson le subi en issourse están clases agregadas por mi aunque se guarda en mk sistema nl se refleja en los commits que porfsvor le revise ese error porfsvor 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
