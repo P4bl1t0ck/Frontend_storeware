@@ -1,18 +1,30 @@
 import axios from "axios";
-import { API_BASE } from "./config";
 
-const PRODUCTOS_URL = '${API_BASE}/api/ProductoApi';
-//apunta a nuestro API de productos
-//Para su uso o coonsumo
+// Configuración correcta de la URL base
+const API_BASE = "http://localhost:5242";
+const PRODUCTOS_URL = `${API_BASE}/api/ProductoApi`;
 
 export async function getProductos() {
-  const { data } = await axios.get(PRODUCTOS_URL);
-  return data;
+  try {
+    const response = await axios.get(PRODUCTOS_URL);
+    console.log("Datos recibidos:", response.data); // Para depuración
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener productos:", error);
+    throw error;
+  }
 }
 
 export async function createProducto(payload) {
-  // payload shape expected by backend Producto model
-  // { nombre, descripcion, precio, stock, categoria, proveedorId }
-  const { data } = await axios.post(PRODUCTOS_URL, payload);
-  return data;
+  try {
+    const response = await axios.post(PRODUCTOS_URL, payload, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error al crear producto:", error);
+    throw error;
+  }
 }

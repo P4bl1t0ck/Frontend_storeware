@@ -11,7 +11,7 @@ export default function App() {
       {/* Banner superior - Reemplaza con tu imagen */}
       <header className="app-banner">
         <Banner imageUrl="/banner.jpg" 
-                title="ScoreWare Fresh" 
+                title="StoreWare Fresh" 
                 subitle="Storeware"
                 />
       </header>
