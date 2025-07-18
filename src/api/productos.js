@@ -1,7 +1,9 @@
 import axios from "axios";
 import { API_BASE } from "./config";
 
-const PRODUCTOS_URL = `${API_BASE}/api/ProductoApi`;
+const PRODUCTOS_URL = '${API_BASE}/api/ProductoApi';
+//apunta a nuestro API de productos
+//Para su uso o coonsumo
 
 export async function getProductos() {
   const { data } = await axios.get(PRODUCTOS_URL);

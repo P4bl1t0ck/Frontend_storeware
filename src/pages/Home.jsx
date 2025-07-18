@@ -27,9 +27,16 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <h1>Tienda StoreWare 🛒</h1>
+      <header className="home-header">
+        <h1 className="home-title">Tienda StoreWare <span className="highlight">🛒</span></h1>
+        <p className="home-subtitle">Los mejores productos al mejor precio</p>
+      </header>
+      
       {productos.length === 0 ? (
-        <p>No hay productos que mostrar.</p>
+        <div className="empty-state">
+          <span className="empty-icon">📦</span>
+          <p>No hay productos que mostrar</p>
+        </div>
       ) : (
         <div className="producto-grid">
           {productos.map(p => (

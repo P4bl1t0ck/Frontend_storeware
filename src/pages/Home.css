@@ -1,12 +1,109 @@
+:root {
+  --primary-color: #2ecc71;
+  --primary-dark: #27ae60;
+  --background-dark: #121212;
+  --card-bg: #1e1e1e;
+  --text-light: #ecf0f1;
+  --text-muted: #bdc3c7;
+  --error-color: #e74c3c;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1.5rem;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+}
+
+.highlight {
+  color: var(--primary-color);
+}
+
+.home-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
 .home-container {
   padding: 2rem;
-  background-color: #f0f2f5;
-  min-height: 100vh;
+  background-color: var(--background-dark);
+  min-height: calc(100vh - 150px); /* Ajusta según tu banner */
+  color: var(--text-light);
 }
 
 .producto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
+.home-loading, .home-error, .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(46, 204, 113, 0.2);
+  border-radius: 50%;
+  border-top-color: var(--primary-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.home-error {
+  color: var(--error-color);
+}
+
+.error-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state {
+  color: var(--text-muted);
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 1px dashed #333;
+}
+
+.empty-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+/* Efectos de hover para el grid (si decides añadirlos) */
+.producto-grid:hover .producto-card:not(:hover) {
+  opacity: 0.8;
+  transform: scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .producto-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .home-title {
+    font-size: 2rem;
+  }
+}

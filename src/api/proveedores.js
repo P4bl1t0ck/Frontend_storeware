@@ -1,7 +1,8 @@
 import axios from "axios";
 import { API_BASE } from "./config";
 
-const PROVEEDORES_URL = `${API_BASE}/api/ProveedorApi`; // adjust if different
+const PROVEEDORES_URL = '${API_BASE}/api/ProveedorApi'; 
+//apunta a nuesto API de proveedores
 
 export async function getProveedores() {
   try {

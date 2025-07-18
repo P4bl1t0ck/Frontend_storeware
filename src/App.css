@@ -1,0 +1,131 @@
+:root {
+  --primary-color: #2ecc71;
+  --primary-dark: #27ae60;
+  --background-dark: #121212;
+  --sidebar-dark: #1a1a1a;
+  --text-light: #ecf0f1;
+  --text-muted: #bdc3c7;
+  --sidebar-width: 250px;
+}
+
+/* Estructura principal */
+.app-container {
+  display: grid;
+  grid-template-areas:
+    "banner banner"
+    "sidebar content";
+  grid-template-columns: var(--sidebar-width) 1fr;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+/* Banner superior */
+.app-banner {
+  grid-area: banner;
+  background-color: #000;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+/* Barra lateral */
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--sidebar-dark);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 150px);
+  border-right: 1px solid #333;
+  position: sticky;
+  top: 150px;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 20px 0;
+  flex-grow: 1;
+}
+
+.nav-item {
+  margin-bottom: 5px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.nav-link:hover {
+  background-color: #222;
+}
+
+.nav-link.active {
+  background-color: #222;
+  border-left: 4px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.nav-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.nav-text {
+  font-size: 1rem;
+}
+
+/* Contenido principal */
+.main-content {
+  grid-area: content;
+  padding: 2rem;
+  background-color: var(--background-dark);
+}
+
+/* Pie de la barra lateral */
+.sidebar-footer {
+  padding: 15px;
+  border-top: 1px solid #333;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Efectos especiales */
+.sidebar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-color), transparent);
+}
+
+/* Transiciones suaves */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
